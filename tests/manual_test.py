@@ -18,7 +18,7 @@ def main():
     article = writer.write(topic, notes)
     
     # 3. Save to file
-    filename = f"{topic.replace(' ', '_').lower()}.md"
+    filename = f"news/{topic.replace(' ', '_').lower()}.md"
     with open(filename, "w", encoding="utf-8") as f:
         f.write(article)
         
