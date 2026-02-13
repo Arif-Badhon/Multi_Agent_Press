@@ -1,46 +1,45 @@
-"""
-manual_test.py
-Runs the Reporter and Writer together based on user input.
-"""
 import os
 from src.agents.reporter import ReporterAgent
 from src.agents.writer import WriterAgent
+from src.agents.presenter import PresenterAgent
 
 def main():
-    # --- GET USER INPUT ---
     print("\n" + "="*30)
-    print(" 📰 AGENT PRESS: NEWS DESK")
+    print(" 📰 AGENT PRESS: MULTI-AGENT NEWSROOM")
     print("="*30)
     
-    # Prompt user for a topic
-    user_prompt = input("\nEnter a topic for the news report (or press Enter for default): ").strip()
-    
-    # Set a default if input is empty
+    user_prompt = input("\nEnter a topic: ").strip()
     topic = user_prompt if user_prompt else "The Future of AI Agents in 2026"
     
-    print(f"\n🚀 Processing: '{topic}'...")
-
-    # 1. Reporter Step: Gather notes
+    # 1. Reporter
     reporter = ReporterAgent()
     notes = reporter.research(topic)
     
-    # 2. Writer Step: Turn notes into an article
+    # 2. Writer
     writer = WriterAgent()
     article = writer.write(topic, notes)
     
-    # --- SAVE LOGIC ---
+    # 3. Presenter (Phase 3)
+    presenter = PresenterAgent()
+    
+    # --- SAVE AND CONVERT ---
     output_folder = "news"
     os.makedirs(output_folder, exist_ok=True)
     
-    # Create a safe filename (removes spaces, adds .md)
-    safe_filename = topic.replace(' ', '_').lower() + ".md"
-    file_path = os.path.join(output_folder, safe_filename)
+    base_name = topic.replace(' ', '_').lower()
+    md_path = os.path.join(output_folder, f"{base_name}.md")
+    mp3_path = os.path.join(output_folder, f"{base_name}.mp3")
     
-    # Write the file
-    with open(file_path, "w", encoding="utf-8") as f:
+    # Save Markdown
+    with open(md_path, "w", encoding="utf-8") as f:
         f.write(article)
+    
+    # Generate Audio
+    presenter.speak(article, mp3_path)
         
-    print(f"\n✅ Success! Article saved to: {file_path}")
+    print(f"\n✅ DONE!")
+    print(f"📄 Article: {md_path}")
+    print(f"🎧 Audio:   {mp3_path}")
     print("="*30 + "\n")
 
 if __name__ == "__main__":
