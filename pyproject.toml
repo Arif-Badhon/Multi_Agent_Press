@@ -8,10 +8,12 @@ requires-python = ">=3.12"
 dependencies = [
     "google-adk",
     "google-genai",
+    "googlesearch-python>=1.3.0",
     "pydantic",
     "python-dotenv",
     "pyyaml",
-    "uv"
+    "tavily-python>=0.7.21",
+    "uv",
 ]
 
 [build-system]
