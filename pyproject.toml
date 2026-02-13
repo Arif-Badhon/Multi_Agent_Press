@@ -9,6 +9,7 @@ dependencies = [
     "google-adk",
     "google-genai",
     "googlesearch-python>=1.3.0",
+    "gtts>=2.5.4",
     "pydantic",
     "python-dotenv",
     "pyyaml",
