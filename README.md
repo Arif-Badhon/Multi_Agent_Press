@@ -84,7 +84,7 @@ uv run python -c "import src.agents; print('Agents module imported successfully'
 ## 🗺 Roadmap
 
 - [x] Phase 0: Project Skeleton & Dependency Setup
-- [ ] Phase 1: Implement Reporter Agent (Web Search Integration)
-- [ ] Phase 2: Implement Writer Agent (Drafting Logic)
+- [x] Phase 1: Implement Reporter Agent (Web Search Integration)
+- [x] Phase 2: Implement Writer Agent (Drafting Logic)
 - [ ] Phase 3: Implement Presenter Agent (Audio Generation)
 - [ ] Phase 4: Implement Editor Agent (Workflow Orchestration)
