@@ -26,3 +26,7 @@ data/checkpoints/*
 
 # Mac
 .DS_Store
+
+#folders
+news/
+
