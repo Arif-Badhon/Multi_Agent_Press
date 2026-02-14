@@ -167,10 +167,6 @@ newsroom_ai_agent/
 
 - [x] **Core Agents**: Reporter, Writer, Presenter implemented.
 - [x] **Orchestration**: Basic Hub-and-Spoke workflow.
-- [ ] **Feedback Loop**: Editor agent reviews and requests revisions from Writer.
-- [ ] **Newsletter**: Email integration to send daily digests.
-- [ ] **Web UI**: Streamlit or React frontend for easier interaction.
-- [ ] **Podcast Mode**: Multi-speaker dialogue generation.
 
 ## 🤝 Contributing
 
