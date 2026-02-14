@@ -41,23 +41,23 @@ This project demonstrates the power of **Agentic workflows** using Google's **Ge
 The system follows a linear dag-like workflow orchestrated by the Editor:
 
 ```mermaid
-graph LR
+flowchart LR
     User[User Input] --> Editor("👔 Editor Agent")
     
     subgraph "Production Pipeline"
-        Editor -->|1. Assign Topic| Reporter("🕵️ Reporter Agent")
-        Reporter -->|Web Search (Tavily)| Internet(("☁️ Internet"))
-        Internet -->|Live Data| Reporter
-        Reporter -->|Field Notes| Editor
+        Editor -- "1. Assign Topic" --> Reporter("🕵️ Reporter Agent")
+        Reporter -- "Web Search (Tavily)" --> Internet(("☁️ Internet"))
+        Internet -- "Live Data" --> Reporter
+        Reporter -- "Field Notes" --> Editor
         
-        Editor -->|2. Submit Notes| Writer("✍️ Writer Agent")
-        Writer -->|Draft Article| Editor
+        Editor -- "2. Submit Notes" --> Writer("✍️ Writer Agent")
+        Writer -- "Draft Article" --> Editor
         
-        Editor -->|3. Approve Draft| Presenter("🎙️ Presenter Agent")
-        Presenter -->|Generate Audio| Config(("⚙️ Config"))
+        Editor -- "3. Approve Draft" --> Presenter("🎙️ Presenter Agent")
+        Presenter -- "Generate Audio" --> Config(("⚙️ Config"))
     end
     
-    Presenter -->|MP3 + MD| Output["📂 /news Folder"]
+    Presenter -- "MP3 + MD" --> Output["📂 /news Folder"]
 ```
 
 ### The Agents
